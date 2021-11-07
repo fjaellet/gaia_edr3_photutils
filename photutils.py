@@ -77,7 +77,7 @@ def BPRP0(BP_obs, RP_obs, AV, Teff):
     Returns:
         MG0   (array/float) - Absolute G-band magnitude
     """
-    result = (BP_obs - ABP(AV, Teff)) - (RP_obs - ARP(AV50, teff50))
+    result = (BP_obs - ABP(AV, Teff)) - (RP_obs - ARP(AV, Teff))
     # Filter out objects with missing BP/RP measurements
     okay = (BP_obs > -5.) & (RP_obs > -5.)
     result[~okay] = np.nan
